@@ -226,6 +226,9 @@ class _ProfileState extends State<Profile> {
                               break;
                             }
                           }
+
+                          // print("name ${widget.username} data ${data['Response']['Records'][index]} data2 ${jsonDecode(value)['Response']
+                          // ['Records'][index]}");
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => widget.username == null
                                   ? const EditProfile()
@@ -276,6 +279,7 @@ class _ProfileState extends State<Profile> {
                                     crossAxisCount: 2),
                             itemCount: data['ProfilePhotos'].length,
                             itemBuilder: (context, index) {
+
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
@@ -367,7 +371,7 @@ class _ProfileState extends State<Profile> {
   Widget showDetails(String img, String field) {
     return AlertDialog(
         title: Image(image: NetworkImage(img)),
-        content: usernamecontroller.text.trim() != data['UserName']
+        content: usernamecontroller.text.trim() == data['UserName']
             ? SizedBox()
             : FittedBox(
                 child: Row(

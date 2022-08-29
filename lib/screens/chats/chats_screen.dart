@@ -146,7 +146,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
               return ChatCard(
                 chatId: data['Response']['Records'][index]['ChatId'],
                 press: () {
-                  timer!.cancel();
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -158,6 +158,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
                       ),
                     ),
                   );
+                  setState(() {
+                    timer!.cancel();
+                  });
                 },
                 chat: Chat(
                     name: data['Response']['Records'][index]

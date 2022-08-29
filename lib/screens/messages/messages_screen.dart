@@ -36,8 +36,10 @@ class _MessagesScreenState extends State<MessagesScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+  print("user ${widget.username} index ${widget.index}");
     print(socket.connected);
+
+
     socket.on('CreateChat', (data) {
       setState(() {
         msgList = data;
